@@ -6,43 +6,49 @@
                     <h3>Stake to mine and earn SUN</h3>
                     <p>SUN smart contract has been verified by SlowMist. Check out the audit report <a href="">here</a></p>
                 </div>
-
+        <div class="anounce" :class="{Anounce : !hide_anounce}">
+            <div class="anounce-content">
+                <span>Currently we only support staking through this page. Assets that are staked via other means will not be included in Official mining and cannot be returned.</span>
+                <i @click="func_hide_anouce" class="fas fa-times"></i>
+            </div>
+        </div>
                 <div class = "sun-dashboard">
-                    <div class = "sun-nav">
-                        <div class="title">
-                            <img src="../assets/Screenshot 2020-11-12 173934.png">
-                            <p>Total Staked Value</p>
-                            <a class="rules" href="#">Mining rules</a>
+                    <div class="sun-dash-content">
+                        <div class = "sun-nav">
+                            <div class="title">
+                                <img src="../assets/Screenshot 2020-11-12 173934.png">
+                                <p>Total Staked Value</p>
+                                <a class="rules" href="#">Mining rules</a>
+                            </div>
+                            <div class = "value">
+                                <span class = "mined-amount">
+                                    ≈ 8,008,693,187
+                                    <span class = "trxUni">TRX</span>
+                                </span>
+                                <span class ="usd_amount">
+                                    ≈ 200,121,225
+                                    <span class="usdUni">USD</span>
+                                </span>
+                            </div>
                         </div>
-                        <div class = "value">
-                            <span class = "mined-amount">
-                                ≈8,008,693,187
-                                <span class = "trxUni">TRX</span>
-                            </span>
-                            <span class ="usd_amount">
-                                ≈200,121,225
-                                <span class="usdUni">USD</span>
-                            </span>
-                        </div>
-                    </div>
 
-                    <div class = "gettoken">
+                        <div class = "gettoken">
                             <a class = "getLp" href = "#" target="_blank">
                                 Get LP Token on JustSwap
                                 <span class = "QuestionCircleOutlined">?</span>
                             </a>
+                        </div>
                     </div>
                 </div>
+        </div>
 
-            </div>
-
-            <div class="nav-bar">
-                <span class="Active active">Active</span>
-                <span class="so">|</span>
-                <span class="ended">Ended</span>
-            </div>
-
-            <div class="list-boxs">
+        <div class="nav-bar">
+            <span class="active" v-bind:class="{ Active : isActive }" @click="func_active">Active</span>
+            <span class="so">|</span>
+            <span class="ended" v-bind:class="{ Ended : !isActive }" @click="func_ended">Ended</span>
+        </div>
+        <div id="active-ended">
+            <div v-if="condition_active" class="list-boxs-active">
                 <section class="bg_white">
                     <div>
                         <div class = "sun-header">
@@ -505,12 +511,395 @@
 
                 
             </div>
+            <div v-else class="list-boxs-active">
+                
+            <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg_white">
+                <div class="over">Ended</div>
+                    <div>
+                        <div class = "sun-header">
+                            <img src ="../assets/sun.png" alt class="tokenLogo">
+                            <img src = "../assets/kimcuong.png" alt class="sunlogo">
+                            <div class = "header-right-box">
+                                <h1 class="title-en-small">SUN/TRX LP Pool</h1>
+                                <div class= "hr-sub">
+                                    <div class = "tip">Stake SUN/TRX LP</div>
+                                    <div class = "tip-m12">
+                                        <span>
+                                            Earn <b>9x</b> SUN
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total">
+                            <span class="t-num">
+                                Total: 54,371,502,266
+                            </span>
+                            <span class = "apy">
+                                APY: 36.62%
+                            </span>
+                        </div>
+
+                        <div class = "info-center">
+                            <div>
+                                <span>
+                                    <p>Total Staked</p>
+                                    <p>
+                                        <span>1,778,688</span>
+                                        <span>SUN</span>
+                                    </p>
+                                    <p>
+                                        <span>548,350,472</span>
+                                        <span>TRX</span>
+                                    </p>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <p>Pool Supply</p>
+                                    <p>
+                                        <span>20.089</span>
+                                        <span>SUN</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottomFix">
+                            <a class="type-link" href="https://justswap.io/?lang=en-US?tokenAddress=TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9&type=add#/home" targer="_blank">Get LP Token</a>
+                            <button class="create_btn_gray">Select</button>
+                        </div>
+                    </div>
+                </section>       
+            </div> 
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    el : '#active-ended',
+    data() {
+        return {
+            isActive : true,
+            condition_active : true,
+            hide_anounce : true
+        }
+    },
+    methods: {
+        func_active(){
+            this.isActive = true,
+            this.condition_active = true
+        },
+        func_ended(){
+            this.isActive = false,
+            this.condition_active = false
+        },
+        func_hide_anouce(){
+            this.hide_anounce = false
+        }
+    },
 }
 </script>
 
@@ -548,20 +937,53 @@ export default {
     border-radius: 10px;
 }
 
+.anounce{
+    background-color: yellow;
+    position: absolute;
+    top: 275px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    transition: .5s;
+    opacity: 1;
+}
+.anounce.Anounce{
+    opacity: 0;
+}
+.anounce-content{
+    position: relative;
+    padding : 10px;
+}
+.anounce span,i {
+    color: red;
+}
+.anounce span {
+    padding: 0 17px;
+    display: block;
+    text-align: center;
+}
+.anounce i{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
 .sun-dashboard {
-    margin: 50px auto;
-    width: 40%;
+    background-color: #fff;
+    position: absolute;
+    top: 350px;
+    left:50%;
+    transform: translateX(calc(-100% /2));
+    border-radius: 10px;
+    min-width: 900px;
+}
+.sun-dash-content{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding : 30px;
-    background-color: #fff;
-    border: 0px solid #fff;
-    border-radius: 16px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(calc(-100% /2));
-    top: 280px;
+    padding: 30px;
+    position: relative;
 }
 .sun-nav {
     display: flex;
@@ -570,14 +992,17 @@ export default {
 .title{
     display: flex;
     margin-bottom: 20px;
+    min-width: 200px;
 }
 
 .title img,p,a {
     padding-right: 5px;
 }
 
+
+
 .title a{
-    margin-top: 2px;
+    margin-top: 3px;
     font-size: 12px;
 }
 
@@ -594,7 +1019,8 @@ export default {
     font-size: 14px;
 }
 .gettoken {
-    margin-left: 250px;
+    position: absolute;
+    right: 30px;
     padding : 15px;
     background-color: rgb(0, 51, 255);
     border: 0px solid rgb(0, 51, 255);
@@ -620,7 +1046,7 @@ export default {
     text-align: center;
 }
 
-.nav-bar .Active, .nav-bar .ended{
+.nav-bar .active, .nav-bar .ended{
     margin-right: 10px;
     font-size: 18px;
     color:#999;
@@ -632,15 +1058,19 @@ export default {
     margin-right: 18px;
 }
 
-.nav-bar .Active:hover, .ended:hover{
+.nav-bar .active:hover, .ended:hover{
     color: rgb(0, 51, 255);
 }
 
-.nav-bar .Active.active{
+.nav-bar .active{
+    color: #999;
+}
+
+.nav-bar .active.Active, .ended.Ended{
     color: rgb(0, 51, 255);
 }
 
-.list-boxs{
+.list-boxs-active{
     width: 70%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -657,6 +1087,7 @@ export default {
     position: relative;
     overflow: hidden;
     height: 450px;
+    position: relative;
 }
 
 
@@ -805,6 +1236,22 @@ a.type-link {
     width: 100%;
     height: 30px;
     border: 0px;
+}
+
+.bg_white .over{
+    transform: rotate(-315deg);
+    transform-origin: right top;
+    font-family: AvenirNext-Bold;
+    font-size: 14px;
+    color: #fff;
+    background: #999;
+    position: absolute;
+    right: -25px;
+    top: 80px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    width: 150px;
 }
 
 </style>

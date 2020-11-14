@@ -1,11 +1,14 @@
 <template>
     <footer>
-        <a href="https://twitter.com/defi_sunio" target="twitter">Twitter</a>
-        <a href="https://t.me/SunIO_Defi" target="tele">Telegram</a>
-        <a class="qr-code">
-            WeChat
-            <img title="qrwechat.jpg" alt>
-        </a>
+    <ul>
+        <li><a href="https://twitter.com/defi_sunio" target="twitter">Twitter</a></li>
+        <li><a href="https://t.me/SunIO_Defi" target="tele">Telegram</a></li>
+        <li class="wc">WeChat
+            <ul>
+                <li><img src="../assets/qrwechat.jpg"></li>
+            </ul>
+        </li>
+    </ul>
     </footer>
 </template>
 
@@ -16,24 +19,43 @@ export default {
 </script>
 
 <style scoped>
-    footer {
-    width: calc(80% - 100px);
-    margin: 0 auto;
+footer{
     text-align: center;
-    padding-bottom: 35px;
 }
 
-footer a, footer a:link, footer a:visited {
+footer ul{
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+footer .wc{
+    position: relative;
+    cursor: pointer;
+}
+
+footer img{
+    position: absolute;
+    max-width: 150px;
+    max-height: 150px;
+    top: -350%;
+    left: -70%;
+    text-align: left;
+    display: none;
+}
+
+footer .wc:hover img{
+    display: block;
+}
+
+footer a,li {
     color: #999;
-}
-
-a, a:link, a:visited {
-    color: #1890ff;
-    text-decoration: none;
-}
-
-footer a {
     margin: 0 30px;
     font-size: 12px;
+}
+
+footer a:hover, .wc:hover{
+    color: rgb(0,51,255);
 }
 </style>

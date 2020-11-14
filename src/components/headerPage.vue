@@ -2,24 +2,27 @@
   <div class = "header-content">  
         <div class ="header-nav">
             
-            <div>
+            <div class="Logo">
                 <img class = "logo" src="../assets/SUNLogo.178d4636.png">
             </div>
 
-            
             <nav>
                 <ul>
                     <li class = "sun"><a href = "#">SUN</a></li>
                     <li class = "vote"><a href = "#">Vote</a></li>
                     <li class = "faqs"><a href = "#">FAQs</a></li>
-                    <li class = "lear"><a href = "#">Learn</a></li> 
+                    <li class = "learn" ><a href = "#">Learn</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">WhitePaper</a></li>
+                            <li><a href="#">Audit</a></li>
+                        </ul>
+                    </li> 
                 </ul>
             </nav>
-            
 
             <div class="header-right">
                 <div class="connect-wallet">
-                    <p>Connect to Wallet</p>
+                    <p><a href="">Connect to Wallet</a></p>
                 </div>
                 <div class="change-language">
                     <select>
@@ -34,7 +37,7 @@
 
 <script>
 export default {
-  
+    
 }
 </script>
 
@@ -45,46 +48,82 @@ export default {
     align-items: center;
     justify-content: space-between;
 }
-
-
+.header-nav .Logo, .header-right, .nav{
+    width: 33.33333333333333333333%
+}
 .header-nav .logo{
     width: 150px;
     height: 50px;
     margin: 30px;
 }
 
-.header-nav nav ul{
-    display: flex;
-    list-style: none;
+.sun a,.vote a,.faqs a, .learn a{
+    color: #fff;
+}
+
+.sun{
+    background-color: rgb(0, 51, 255);
+    border-radius: 10px;
 }
 
 .header-nav ul li {
+    display: inline-block;
+    padding: 10px;
     margin: 0 20px;
-    padding: 5px 10px;
-}
-.header-nav ul li a, .header-nav ul div{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
-.header-nav nav ul .sun, .connect-wallet{
-    background-color: rgb(0, 51, 255);
-    border: 1px solid rgb(0, 51, 255);
-    border-radius: 10px;
+.learn{
+    position: relative;
+}
+
+.dropdown-content li {
+    width: 100%;
+    float: left;
+}
+
+.dropdown-content li a{
+    color: #000;
+}
+
+.dropdown-content li a:hover{
+    color:rgb(0, 51, 255);
+}
+.dropdown-content {
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    display: none;
+}
+
+.learn:hover .dropdown-content{
+    display: block;
 }
 
 .header-right{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-enD;
 }
 
 .connect-wallet{
-    color: rgb(255, 255, 255);
     padding: 5px 20px;
+    background-color: rgb(0, 51, 255);
+    border-radius: 10px;
+}
+
+.connect-wallet a{
+    color: rgb(255, 255, 255);
 }
 
 .change-language{
     padding: 0 30px;
+}
+
+.change-language select{
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 .content{
@@ -118,6 +157,11 @@ export default {
     background-color: rgb(0, 51, 255);
     border: 0px solid rgb(0, 51, 255);
     border-radius: 10px;
+}
+
+footer .imgQrcodeOfWechat{
+    position: absolute;
+
 }
 
 </style>

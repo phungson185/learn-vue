@@ -40,4 +40,12 @@ body {
     width: 100%;
     background-color: gainsboro;
 }
+
+a{
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
 </style>
