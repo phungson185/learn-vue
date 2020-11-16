@@ -9,7 +9,7 @@
             <nav>
                 <ul>
                     <li class = "sun"><a href = "#">SUN</a></li>
-                    <li class = "vote"><a href = "#">Vote</a></li>
+                    <li class = "vote"><a href= "#" @click="isVote = true">Vote</a></li>
                     <li class = "faqs"><a href = "#">FAQs</a></li>
                     <li class = "learn" ><a href = "#">Learn</a>
                         <ul class="dropdown-content">
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 

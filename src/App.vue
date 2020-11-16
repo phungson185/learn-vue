@@ -2,24 +2,26 @@
   <div id="app">
     <brgSun />
     <headerPage />
-    <sunPage />
+    <!-- <sunPage /> -->
     <footerPage />
+    <votePage />
   </div>
 </template>
 
 <script>
-import sunPage from './components/sunPage.vue'
+// import sunPage from './components/sunPage.vue'
 import headerPage from './components/headerPage.vue'
 import footerPage from './components/footerPage.vue'
 import brgSun from './components/background.vue'
-
+import votePage from './components/votePage.vue'
 export default {
   name: 'App',
   components: {
     headerPage,
-    sunPage,
+    // sunPage,
     footerPage,
-    brgSun
+    brgSun,
+    votePage
   }
 }
 </script>
