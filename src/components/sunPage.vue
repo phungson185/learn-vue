@@ -944,7 +944,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     width: 900px;
-    transition: .5s;
+    transition: 0.5s;
     opacity: 1;
 }
 .anounce.Anounce{

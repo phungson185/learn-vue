@@ -8,10 +8,10 @@
 
             <nav>
                 <ul>
-                    <li class = "sun"><a href = "#">SUN</a></li>
-                    <li class = "vote"><a href= "#" @click="isVote = true">Vote</a></li>
-                    <li class = "faqs"><a href = "#">FAQs</a></li>
-                    <li class = "learn" ><a href = "#">Learn</a>
+                    <li class = "sun" :class="{Sun : isSun}" @click="changeTab($event)"><a href = "#">SUN</a></li>
+                    <li class = "vote" :class="{Vote : isVote}" @click="changeTab($event)"><a href= "#">Vote</a></li>
+                    <li class = "faqs" :class="{Faqs : isFaqs}" @click="changeTab($event)"><a href = "#">FAQs</a></li>
+                    <li class = "learn"><a href = "#">Learn</a>
                         <ul class="dropdown-content">
                             <li><a href="#">WhitePaper</a></li>
                             <li><a href="#">Audit</a></li>
@@ -37,7 +37,38 @@
 
 <script>
 export default {
+    el : '#header-nav',
+    data() {
+        return {
+            isSun : true,
+            isVote : false,
+            isFaqs : false
+        }
+    },
+    methods: {
+        changeTab(event) {
 
+            this.$emit('changeTabHeader', event.target.outerText);
+            if(event.target.outerText === 'SUN')
+                {
+                    this.isSun = true,
+                    this.isVote = false,
+                    this.isFaqs = false
+                }
+            else if (event.target.outerText === 'Vote')
+                {
+                    this.isSun = false,
+                    this.isVote = true,
+                    this.isFaqs = false
+                }
+            else if (event.target.outerText === 'FAQs')
+                {
+                    this.isSun = false,
+                    this.isVote = false,
+                    this.isFaqs = true
+                }
+        }   
+    }
 }
 </script>
 
@@ -61,10 +92,12 @@ export default {
     color: #fff;
 }
 
-.sun{
+.sun.Sun, .vote.Vote, .faqs.Faqs{
     background-color: rgb(0, 51, 255);
     border-radius: 10px;
 }
+
+
 
 .header-nav ul li {
     display: inline-block;

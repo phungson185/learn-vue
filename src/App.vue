@@ -1,27 +1,41 @@
 <template>
   <div id="app">
     <brgSun />
-    <headerPage />
-    <!-- <sunPage /> -->
+    <headerPage v-on:changeTabHeader="updateParent"/>
+    <sunPage v-if="isChoice === 'SUN'"/>
+    <votePage v-else-if="isChoice ==='Vote'"/>
+    <faqsPage v-else-if="isChoice ==='FAQs'"/>
     <footerPage />
-    <votePage />
   </div>
 </template>
 
 <script>
-// import sunPage from './components/sunPage.vue'
+import sunPage from './components/sunPage.vue'
 import headerPage from './components/headerPage.vue'
-import footerPage from './components/footerPage.vue'
 import brgSun from './components/background.vue'
+import faqsPage from './components/faqsPage.vue'
 import votePage from './components/votePage.vue'
+import footerPage from './components/footerPage.vue'
+
 export default {
   name: 'App',
   components: {
     headerPage,
-    // sunPage,
-    footerPage,
+    sunPage,
     brgSun,
-    votePage
+    faqsPage,
+    votePage,
+    footerPage
+  },
+  methods: {
+    updateParent(value) {
+        this.isChoice = value;
+    }
+  },
+  data() {
+    return {
+      isChoice: "SUN",
+    }
   }
 }
 </script>

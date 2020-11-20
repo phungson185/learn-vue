@@ -1,5 +1,6 @@
 <template>
-    <div class = "vote-list-container">
+    <div>
+        <div class = "vote-list-container" v-if="isVote === 1">
 
         <div class="title">
             Vote
@@ -14,6 +15,8 @@
                 </div>
 
                 <div class="vote-list-content">
+
+
                     <div class="tab-active" v-if="conditionActive">
                         <img src="../assets/voinuoc.png">
 
@@ -23,7 +26,7 @@
                     </div>
 
                     <div class="tab-closed" v-else>
-                        <a href="#">
+                        <a href="#" @click="isVote = 2">
                             <div class="vote-for">
                                 <div class="vote-for-top">
                                     <span class = "vote-for-your">Vote for Your Favorite Pool</span>
@@ -34,27 +37,55 @@
                                     <span class="closed">Closed</span>
                                     <div class="author-total">
                                         <span>Author: </span>
-                                        <span class="text333">SUN Team</span>
+                                        <span class="text333">SUN Team </span>
                                         <span>Total pool supply: </span>
                                         <span class="text333">1,200SUN</span>
                                     </div>                               
                                 </div>
                             </div>
                         </a>
+
+
+                        <a href="#"  @click="isVote = 3">
+                            <div class="vote-for">
+                                <div class="vote-for-top">
+                                    <span class = "vote-for-your">Vote the featured token onto JustSwap’s token list</span>
+                                    <span class = "ends-at">Ends at: Nov 08 2020 11:00:00</span>
+                                </div>
+
+                                <div class="vote-for-bot">
+                                    <span class="closed">Closed</span>
+                                    <div class="author-total">
+                                        <span>Author: </span>
+                                        <span class="text333">SUN Team </span>
+                                        
+                                    </div>                               
+                                </div>
+                            </div>
+                        </a>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
 
+        </div>
+        <vote-one-page v-if="isVote === 2"  ></vote-one-page>
+        <vote-two-page v-if ="isVote === 3"  ></vote-two-page>
     </div>
 </template>
 
 <script>
+import voteOnePage from './voteOnePage.vue';
+import voteTwoPage from './voteTwoPage.vue'
 export default {
     el :'#vote-list-nav-bar',
     data() {
         return {
-            conditionActive : true
+            conditionActive : true,
+            isVote: 1,
         }
     },
     methods: {
@@ -65,13 +96,17 @@ export default {
             this.conditionActive = false;
         }
     },
+    components: {
+        voteOnePage,
+        voteTwoPage
+    }
 }
 </script>
 
 <style scoped>
     .vote-list-container{
         width: 60%;
-        margin: 10px auto 0 auto;
+        margin: 10px auto 50px auto;
     }
 
     .title{
@@ -128,6 +163,10 @@ export default {
         padding: 150px 0;
     }
 
+    img{
+        margin-bottom: 10px;
+    }
+
     .active.Active, .closed.Closed{
         color: rgb(96, 93, 255);
         border-bottom: 3px solid rgb(96, 93, 255);
@@ -139,8 +178,10 @@ export default {
 
     .tab-closed .vote-for{
         padding: 20px;
+        margin-bottom: 10px;
         background-color: #fff;
         border-radius: 10px;
+        box-shadow: #999;
     }
 
     .vote-for-top {

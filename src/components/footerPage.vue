@@ -1,14 +1,10 @@
 <template>
     <footer>
-    <ul>
         <li><a href="https://twitter.com/defi_sunio" target="twitter">Twitter</a></li>
         <li><a href="https://t.me/SunIO_Defi" target="tele">Telegram</a></li>
         <li class="wc">WeChat
-            <ul>
-                <li><img src="../assets/qrwechat.jpg"></li>
-            </ul>
+            <img src="../assets/qrwechat.jpg">
         </li>
-    </ul>
     </footer>
 </template>
 
@@ -20,15 +16,13 @@ export default {
 
 <style scoped>
 footer{
-    text-align: center;
-}
-
-footer ul{
-    padding-bottom: 30px;
     display: flex;
+    width: 100%;
+    margin: 10px auto 0 auto;
+    padding-bottom: 20px;
     justify-content: center;
+    bottom: 10px;
 }
-
 
 footer .wc{
     position: relative;
@@ -39,9 +33,8 @@ footer img{
     position: absolute;
     max-width: 150px;
     max-height: 150px;
-    top: -350%;
-    left: -70%;
-    text-align: left;
+    left: -30px;
+    bottom: 40px;
     display: none;
 }
 
